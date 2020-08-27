@@ -1,0 +1,25 @@
+{%load static %}
+<nav>
+    <ul>        
+        <li class="logo">Welcome 
+            {% if user.is_authenticated %}
+                {{user|capfirst}}
+            {% endif %}
+                </li>
+                
+            <div class="items">
+                    <li><a href="{% url 'posts:services-list-view' %}">Home</a></li>
+                    {% if user.is_service_provider %}
+                    <li><a href="{% url 'posts:add-new-post' %}">Add Services</a></li> 
+                    {% endif %}
+                    <li><a href="{% url 'posts:services-list-view' %}">Services</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'users:logout-view' %}">Logout </a></li>
+                    {% else %}
+                    <li><a href="{% url 'users:login-view' %}">Login </a></li>
+                    <li><a href="{% url 'users:register-view' %}">Register</a></li>
+                {% endif %}
+            </div>
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,16 @@
+
+
+{% extends 'header.html' %}
+
+{% load static %}
+
+{% block title %}Home Page{% endblock %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{%static 'css/register.css' %}">
+<link rel="stylesheet" type="text/css" href="{%static 'css/navbar.css'%}">
+<link rel="stylesheet" type="text/css" href="{%static 'css/index.css'%}">
+{% endblock %}
+{% block body %}
+{% include 'main/navbar.html'%}4
+
+{% endblock %}

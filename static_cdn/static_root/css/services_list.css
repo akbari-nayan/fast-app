@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.loginform1{
+    width: 500px;
+    height:600px;
+    background: transparent;
+    color: #000;
+    top:55%;
+    left: 80%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 50px 30px;
+}
+
+
+.loginform1 a{
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 20px;
+    color: darkgray;
+    margin: 10px;
+    margin-top: 30px;
+}
+
+.loginform1 a:hover{
+    color:mediumspringgreen ;
+}
+
+.profile_pic{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    border-radius: 50%;
+    top: 100px;
+    left: calc(-30% - 50px) ;
+}
+
+.loginform1 h3{
+    margin-bottom: 20px;
+}
+
+.pr_title{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: left;
+    font-size: 22x;
+    color: mediumspringgreen;
+}
+
+
+body{
+    font-weight: normal;
+    font-family: Tahoma;
+    color: #333;
+}
+
+h1{
+    text-align: center;
+    margin-top: 80px;
+}
+
+.wrapper{
+    width: 1000px;
+    margin-left: 250px ;
+    margin-top: 0;
+    padding: 20px;
+}
+
+.items-cart{
+    display: block;
+    margin: 30px 0;
+}
+
+.item{
+    float: left;
+    background-color: white;
+    margin: 0 10px 10px 0;
+    width: 250px;
+    padding: 10px;
+}
+
+.item img{
+    display: block;
+    margin: auto;
+}
+
+h2{
+    font-size: 20px;
+    display: block;
+    border: 1p solid #ccc;
+    margin: 0 0 10px 0;
+    padding: 0 0 5px 0;
+    color:lightslategray;
+}
+
+.edit-info:hover{
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
+}
+
+.edit-info{
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 20px;
+    color: darkgray;
+    border: 1px solid mediumspringgreen;
+    padding: 4px 14px;
+    background-color: mediumspringgreen;
+    color: white;
+    text-transform: uppercase;
+    flex: right;
+    margin: 10px 0;
+    font-weight: 400;
+    cursor: pointer;
+    font-family: Tahoma;
+    border-radius: 50px;
+}
+
+.edit-info{
+    outline: none !important;
+}
+
+span{
+    float: right;
+}
+
+p{
+    font-size: 14px;
+    color:darkslategray;
+    margin-bottom: 10px;
+}

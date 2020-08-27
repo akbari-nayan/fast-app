@@ -1,0 +1,89 @@
+{% extends 'header.html' %}
+
+{% load static %}
+{% block vuejs %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
+{% endblock vuejs %}
+{% block title %}Services{% endblock %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{%static 'css/register.css' %}">
+<link rel="stylesheet" type="text/css" href="{%static 'css/navbar.css'%}">
+<link rel="stylesheet" type="text/css" href="{%static  'css/services_list.css'%}">
+{% endblock %}
+
+
+
+<!-- body  -->
+{% block body %}    
+{% include 'main/navbar.html'%}
+
+
+
+{% if user.is_service_provider %}
+
+<h1>Service Provider: {{service_provider}}</h1>
+
+{% verbatim %}
+<div id="serviceApp">
+    <div v-for="(post,  index) in tasks">
+        <form @submit.prevent = "contactMe" class="form-admin"
+            enctype="multipart/form-data">
+            <div class="wrapper">
+                <div class="items">
+                    <div class="item">
+                        <img :src="`${post.image}`" alt="" srcset="" width=200px height="200px">
+                        <br>
+                        <h2>{{post.service_name}}</h2>
+                        <p>Content: {{post.content}}</p>
+                        <input type="hidden"  name="postId" v-model="task"   :value="`${post.post_id}`">
+                        <input  class="cnt-btn" type="submit" name="" value="Contact me">
+                        <!-- @click="contactPr(post.post_id, index)"<a class="cnt-btn" href="">Contact me</a> -->
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+   
+{% endverbatim %}
+
+{% endif %}
+
+<!-- add all services -->
+  
+{% if user.is_client %}
+{% verbatim %}
+<div id="app">
+<h1>All Services</h1>
+    <div v-for="(post,  index) in tasks "  :key="post.id">
+        <form @submit.prevent = "contactMe" class="form-admin"enctype="multipart/form-data">
+            <div class="wrapper">
+                <div class="items">
+                    <div class="item">
+                        <img :src="`${post.image}`" alt="" srcset=""
+                            width=200px height="200px">
+                        <br>
+                        <h2>{{post.service_name}}</h2>
+                        <p>Content:{{index}}-{{post.post_id}} {{post.content}}</p>
+                        <input type="hidden"  name="postId" v-model="task"   value="`${post.post_id}`">
+                        <input  class="cnt-btn" type="submit" name="" value="Contact me">
+                        <!-- @click="contactPr(post.post_id, index)"<a class="cnt-btn" href="">Contact me</a> -->
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- {% endfor %} -->
+
+   
+{% endverbatim %}
+{% endif %}
+{% endblock %}
+{% block js %}
+
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock %}

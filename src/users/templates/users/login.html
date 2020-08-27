@@ -1,0 +1,34 @@
+{% extends 'header.html' %}
+
+{% load static %}
+{% block title %}Login Form{% endblock %}
+{% block css %}
+
+<link rel="stylesheet" type="text/css" href="{%static 'css/login.css'%}">
+<link rel="stylesheet" type="text/css" href="{%static 'css/navbar.css'%}">
+{% endblock %}
+{% block body %}
+{% include 'main/navbar.html'%}
+<div class="loginform">
+ 
+    <h1>Login Here</h1>
+    <form action="" method="POST" class="form">
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+        <div style="color: red">
+            <p>{{login_form.non_field_errors}}</p>
+        </div>
+        {% endif %}
+        {{form.as_p}}
+
+        <!--  
+        <p>Username</p>
+        <input type="text" name="username" placeholder="Username">
+        <p>Password</p>
+        <input type="password" name="password" placeholder="Password"><br>
+        -->
+        <input type="submit" name="" value="Login"><br>
+        <a href="{% url 'users:register-view' %}">Don't have an account?</a>
+    </form>
+</div>
+{% endblock %}
