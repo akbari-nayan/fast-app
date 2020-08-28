@@ -12,7 +12,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class HomeView(LoginRequiredMixin,TemplateView):
-    template_name = "posts/posts_list.html"
+    template_name = "main/index.html"
 
 
 class UserCreateView(FormView):
@@ -29,7 +29,7 @@ class UserCreateView(FormView):
 class LoginView(FormView):
     template_name = 'users/login.html'
     form_class = AuthenticationForm
-    success_url = '/'
+    success_url = '/services/'
 
     def form_valid(self, form):
         request=self.request
@@ -67,9 +67,3 @@ class LogoutView(RedirectView):
 
 
 
-
-        # navbar
-        # <!-- <li><a href="{% url 'users:logout-view' %}">Logout </a></li> -->
-        #         {% else %}
-        #         <li><a href="{% url 'users:login-view' %}">Login </a></li>
-        #         <li><a href="{% url 'users:register-view' %}">Register</a></li>

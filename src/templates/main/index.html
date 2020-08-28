@@ -6,11 +6,33 @@
 
 {% block title %}Home Page{% endblock %}
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{%static 'css/register.css' %}">
+<!-- <link rel="stylesheet" type="text/css" href="{%static 'css/serice_list.css' %}"> -->
 <link rel="stylesheet" type="text/css" href="{%static 'css/navbar.css'%}">
 <link rel="stylesheet" type="text/css" href="{%static 'css/index.css'%}">
 {% endblock %}
 {% block body %}
-{% include 'main/navbar.html'%}4
+
+
+{% include 'main/navbar.html'%}
+
+
+<div class="loginform">
+    <h1>WELCOME TO CLIENT SERVICE PROJECT</h1>
+
+    {% if user.is_authenticated %}
+    <h2>You Already registerd with username <strong>{{user}}</strong></h2>
+
+    <div class="btn">
+            <a href="{% url 'posts:services-list-view' %}"> <button class="my-btn-s">GO TO SERVICES</button> </a>
+    </div>
+    {% else %}
+    <h2>Please login to go ahead</h2>
+    <div class="btn">
+        <a href="{% url 'users:register-view' %}"> <button class="my-btn">SIGN UP</button> </a>
+        <a href="{% url 'users:login-view' %}"> <button class="my-btn">LOG IN</button> </a>
+    </div>
+    {% endif %}
+</div>
+
 
 {% endblock %}
