@@ -9,7 +9,7 @@
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{%static 'css/register.css' %}">
 <link rel="stylesheet" type="text/css" href="{%static 'css/navbar.css'%}">
-<link rel="stylesheet" type="text/css" href="{%static  'css/services_list.css'%}">
+<link rel="stylesheet" type="text/css" href="{%static 'css/services.css'%}">
 {% endblock %}
 
 
@@ -22,7 +22,7 @@
 
 {% if user.is_service_provider %}
 
-<h1>Service Provider: {{service_provider}}</h1>
+<h1>Service Provider: {{user}}</h1>
 
 {% verbatim %}
 <div id="serviceApp">
@@ -66,7 +66,6 @@
                         <p>Content: {{post.content}}</p>
                         <input @click="contactPr(post.post_id)"  class="cnt-btn" type="submit" name="" value="Contact me">
                     </div>
-
                 </div>
             </div>
         </form>

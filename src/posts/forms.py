@@ -7,10 +7,3 @@ class PostModelForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ('service_name','content','image')
-
-
-class PostIdForm(forms.ModelForm):
-    class Meta:
-        model = Post
-
-        fields = ('post_id',)
